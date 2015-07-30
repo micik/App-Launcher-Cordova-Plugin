@@ -4,7 +4,7 @@ import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
-
+с 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -422,7 +422,9 @@ public class Launcher extends CordovaPlugin {
 						json.put("data", intent.getDataString());
 					} catch(JSONException ignored) {}
 				}
-				callback.success(json);
+				if(json != null){
+					callback.success(json);
+				}
 			} else {
 				callback.error("Activity failed (" + resultCode + ").");
 			}
